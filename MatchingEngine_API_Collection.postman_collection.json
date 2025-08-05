@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "matching-engine-api",
+		"name": "MatchingEngine API",
+		"description": "API Collection for MatchingEngine Spring Boot Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create BUY Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"BUY\",\n  \"price\": {{randomPrice}},\n  \"amount\": {{randomAmount}}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"order"
+					]
+				},
+				"description": "Create a new BUY order"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Random BUY order generator",
+							"const price = Math.floor(Math.random() * (120 - 95 + 1)) + 95; // 95-120 arası",
+							"const amount = Math.floor(Math.random() * (200 - 10 + 1)) + 10; // 10-200 arası",
+							"",
+							"pm.variables.set('randomPrice', price);",
+							"pm.variables.set('randomAmount', amount);",
+							"",
+							"console.log(`BUY Order: Price=${price}, Amount=${amount}`);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Response kontrolü",
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response has orderId', function () {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('orderId');",
+							"    console.log('Created Order ID: ' + jsonData.orderId);",
+							"});",
+							"",
+							"// Otomatik SELL order oluştur (isteğe bağlı)",
+							"setTimeout(() => {",
+							"    const sellPrice = Math.floor(Math.random() * (110 - 90 + 1)) + 90;",
+							"    const sellAmount = Math.floor(Math.random() * (150 - 5 + 1)) + 5;",
+							"    ",
+							"    pm.sendRequest({",
+							"        url: 'http://localhost:8080/api/optimized/order',",
+							"        method: 'POST',",
+							"        header: {",
+							"            'Content-Type': 'application/json'",
+							"        },",
+							"        body: {",
+							"            mode: 'raw',",
+							"            raw: JSON.stringify({",
+							"                type: 'SELL',",
+							"                price: sellPrice,",
+							"                amount: sellAmount",
+							"            })",
+							"        }",
+							"    }, (err, res) => {",
+							"        if (err) {",
+							"            console.log('SELL order error:', err);",
+							"        } else {",
+							"            console.log(`Auto SELL Order: Price=${sellPrice}, Amount=${sellAmount}`);",
+							"            console.log('SELL Response:', res.json());",
+							"        }",
+							"    });",
+							"}, 500); // 500ms sonra SELL order gönder"
+						],
+						"type": "text/javascript"
+					}
+				}
+			]
+		},
+		{
+			"name": "Create SELL Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"SELL\",\n  \"price\": 100,\n  \"amount\": 50\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"order"
+					]
+				},
+				"description": "Create a new SELL order"
+			}
+		},
+		{
+			"name": "Get Stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"stats"
+					]
+				},
+				"description": "Get engine statistics"
+			}
+		},
+		{
+			"name": "Get Buy Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/orders/buy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"orders",
+						"buy"
+					]
+				},
+				"description": "Get all active BUY orders"
+			}
+		},
+		{
+			"name": "Get Sell Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/orders/sell",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"orders",
+						"sell"
+					]
+				},
+				"description": "Get all active SELL orders"
+			}
+		},
+		{
+			"name": "Get All Trades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/trades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"trades"
+					]
+				},
+				"description": "Get all executed trades"
+			}
+		},
+		{
+			"name": "Reset Engine",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/optimized/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"optimized",
+						"reset"
+					]
+				},
+				"description": "Reset the matching engine"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
