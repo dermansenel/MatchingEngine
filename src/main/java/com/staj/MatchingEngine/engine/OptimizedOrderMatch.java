@@ -72,6 +72,14 @@ public class OptimizedOrderMatch {
         OrderCounter = 0;
     }
 
+    public int getBuyOrdersAmount() {
+        return buyOrders.stream().mapToInt(Order::getAmount).sum();
+    }
+
+    public int getSellOrdersAmount() {
+        return sellOrders.stream().mapToInt(Order::getAmount).sum();
+    }
+
     public List<Trade> process(Order order) {
 
         List<Trade> matchedTrades = new ArrayList<>();
@@ -94,7 +102,8 @@ public class OptimizedOrderMatch {
             if (order.getPrice() < current.getPrice()) {
                 liste.add(i, order);
                 return;
-            } else if (order.getPrice() == current.getPrice() && order.getDateTimeOfOrder().before(current.getDateTimeOfOrder())) {
+            } else if (order.getPrice() == current.getPrice()
+                    && order.getDateTimeOfOrder().before(current.getDateTimeOfOrder())) {
                 liste.add(i, order);
                 return;
             }
@@ -134,9 +143,11 @@ public class OptimizedOrderMatch {
             int tradePrice = bestSell.getPrice();
 
             Trade trade = tradePool.getTrade();
-            trade.fillPool(buyOrder.getId(), bestSell.getId(), tradeAmount, tradePrice, buyOrder.getPrice(), bestSell.getPrice());
+            trade.fillPool(buyOrder.getId(), bestSell.getId(), tradeAmount, tradePrice, buyOrder.getPrice(),
+                    bestSell.getPrice());
 
-            Trade cpy = new Trade(trade.getTakerOrderId(), trade.getMakerOrderId(), trade.getAmount(), trade.getPrice(), trade.getMakerOrderPrice(), trade.getTakerOrderPrice());
+            Trade cpy = new Trade(trade.getTakerOrderId(), trade.getMakerOrderId(), trade.getAmount(), trade.getPrice(),
+                    trade.getMakerOrderPrice(), trade.getTakerOrderPrice());
 
             matchedTrades.add(cpy); // console test için
             allTrades.add(cpy); // api testi için
@@ -171,8 +182,8 @@ public class OptimizedOrderMatch {
             int tradePrice = bestBuy.getPrice();
 
             Trade trade = tradePool.getTrade();
-            trade.fillPool(bestBuy.getId(), sellOrder.getId(), tradeAmount, tradePrice, bestBuy.getPrice(), sellOrder.getPrice());
-            Trade cpy = new Trade(trade.getTakerOrderId(), trade.getMakerOrderId(), trade.getAmount(), trade.getPrice(), trade.getMakerOrderPrice(), trade.getTakerOrderPrice());
+            trade.fillPool(bestBuy.getId(), sellOrder.getId(), tradeAmount, tradePrice, bestBuy.getPrice(),sellOrder.getPrice());
+            Trade cpy = new Trade(trade.getTakerOrderId(), trade.getMakerOrderId(), trade.getAmount(), trade.getPrice(),trade.getMakerOrderPrice(), trade.getTakerOrderPrice());
 
             matchedTrades.add(cpy); // console tes için
             allTrades.add(cpy);// api test için
@@ -195,10 +206,10 @@ public class OptimizedOrderMatch {
     // Pool sınıfı, trade nesnelerini yeniden yaratmadan kullanıır.
     // maliyet azaltma, garbage collecter yükü azaltma, performans artışı, bellek
     // yönetimi
-    private static class TradePool {
-        private final Queue<Trade> pool = new LinkedList<>();
-        private static final int poolSize = 5000;
-        //private static final int poolSizeIncr = 2000;
+    private  class TradePool {
+        private Queue<Trade> pool = new LinkedList<>();
+        private int poolSize = 5000;
+        private int poolSizeIncr = 2000;
 
         public TradePool() {
             for (int i = 0; i < poolSize; i++) {
@@ -213,24 +224,14 @@ public class OptimizedOrderMatch {
         }
 
         public void returnTrade(Trade trade) {
-            // Havuz zaten maksimum boyutta ise yeni nesneler eklemeye çalışma!
-            // Bu satırları tamamen kaldır!
-            /*
-             * if (pool.size() >= poolSize) {
-             * // Havuz doluysa kapasiteyi artır
-             * for (int i = 0; i < poolSizeIncr; i++) {
-             * pool.offer(new Trade("", "", 0, 0, 0, 0));
-             * }
-             * }
-             */
-            // Sadece havuzda yer varsa ekle
             if (pool.size() < poolSize) {
-                // Trade nesnesini temizle ve havuza ekle
                 trade.fillPool("", "", 0, 0, 0, 0);
                 pool.offer(trade);
+            } else if (pool.size() >= poolSize) {
+                for (int i = 0; i < poolSizeIncr; i++) {
+                    pool.offer(new Trade("", "", 0, 0, 0, 0));
+                }
             }
-            // Eğer havuz doluysa nesneyi pool'a geri koymuyoruz
-            // GC (Garbage Collector) bunu temizleyecek
         }
     }
 }

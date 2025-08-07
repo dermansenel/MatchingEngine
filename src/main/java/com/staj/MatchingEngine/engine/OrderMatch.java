@@ -15,9 +15,9 @@ public class OrderMatch {
     private int totalProcessedOrders = 0; // Toplam işlenen emir sayısı
 
     public OrderMatch() {
-        this.buyOrders = new ArrayList<>();   // alıcılar
-        this.sellOrders = new ArrayList<>();  // satıcılar
-        this.allTrades = new ArrayList<>();   // tüm işlemler
+        this.buyOrders = new ArrayList<>(); // alıcılar
+        this.sellOrders = new ArrayList<>(); // satıcılar
+        this.allTrades = new ArrayList<>(); // tüm işlemler
         this.totalProcessedOrders = 0;
     }
 
@@ -25,12 +25,15 @@ public class OrderMatch {
     public synchronized List<Order> getBuyOrders() {
         return new ArrayList<>(buyOrders);
     }
+
     public synchronized List<Order> getSellOrders() {
         return new ArrayList<>(sellOrders);
     }
+
     public synchronized List<Trade> getAllTrades() {
         return new ArrayList<>(allTrades);
     }
+
     public synchronized int getTotalProcessedOrders() {
         return totalProcessedOrders;
     }
@@ -43,7 +46,7 @@ public class OrderMatch {
                 return true;
             }
         }
-        
+
         // Sell orders listesinde ara
         for (int i = 0; i < sellOrders.size(); i++) {
             if (sellOrders.get(i).getId().equals(orderId)) {
@@ -51,7 +54,7 @@ public class OrderMatch {
                 return true;
             }
         }
-        
+
         return false; // Order bulunamadı
     }
 
@@ -88,7 +91,7 @@ public class OrderMatch {
                     this.removeBuyOrder(0);
                 }
 
-                //this.setLastSalePrice(buyOrder.getPrice());
+                // this.setLastSalePrice(buyOrder.getPrice());
                 return trades;
             } else if (buyOrder.getAmount() < order.getAmount()) {
                 Trade newTrade = new Trade(order.getId(), buyOrder.getId(),
@@ -106,14 +109,14 @@ public class OrderMatch {
         }
 
         this.sellOrders.add(order);
-        // Sell orders: En düşük fiyat önce (ascending order) 
+        // Sell orders: En düşük fiyat önce (ascending order)
         Collections.sort(this.sellOrders);
         return trades;
     }
 
     private List<Trade> processSideBuy(Order order) {
         final ArrayList<Trade> trades = new ArrayList<>();
-        //Döngü dışında kontrol ile. Döngüye girmeden kontrol. hız için.
+        // Döngü dışında kontrol ile. Döngüye girmeden kontrol. hız için.
         final int n = this.sellOrders.size();
 
         int currentPrice;
@@ -134,7 +137,8 @@ public class OrderMatch {
 
                 if (sellOrder.getAmount() >= order.getAmount()) {
                     // Trade oluştur
-                    Trade newTrade = new Trade(order.getId(), sellOrder.getId(), order.getAmount(), sellOrder.getPrice(), order.getPrice(), sellOrder.getPrice());
+                    Trade newTrade = new Trade(order.getId(), sellOrder.getId(), order.getAmount(),
+                            sellOrder.getPrice(), order.getPrice(), sellOrder.getPrice());
 
                     trades.add(newTrade);
                     allTrades.add(newTrade); // global listte
@@ -157,7 +161,7 @@ public class OrderMatch {
                     order.setAmount(order.getAmount() - sellOrder.getAmount());
 
                     this.removeSellOrder(0);
-                    //this.setLastSalePrice(sellOrder.getPrice());
+                    // this.setLastSalePrice(sellOrder.getPrice());
                     continue;
                 }
             }
