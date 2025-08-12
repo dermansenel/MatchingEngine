@@ -1,0 +1,124 @@
+20250811-14:35:54: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250811-14:35:54: Created session: FIX.4.4:MATCHENG->OMS
+20250811-14:36:28: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250811-14:36:28: Created session: FIX.4.4:MATCHENG->OMS
+20250811-14:41:08: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250811-14:41:08: Created session: FIX.4.4:MATCHENG->OMS
+20250811-14:42:33: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250811-14:42:33: Created session: FIX.4.4:MATCHENG->OMS
+20250811-14:45:01: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:49917
+20250811-14:45:01: Acceptor heartbeat set to 30 seconds
+20250811-14:45:01: Received logon
+20250811-14:45:01: Responding to Logon request
+20250811-14:45:29: Disconnecting: Socket exception (/127.0.0.1:49917): java.net.SocketException: Connection reset
+20250811-14:46:27: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250811-14:46:27: Created session: FIX.4.4:MATCHENG->OMS
+20250811-14:47:30: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:50060
+20250811-14:47:30: Acceptor heartbeat set to 30 seconds
+20250811-14:47:30: Received logon
+20250811-14:47:30: Responding to Logon request
+20250811-14:53:45: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250811-14:53:45: Created session: FIX.4.4:MATCHENG->OMS
+20250811-14:54:05: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:50342
+20250811-14:54:05: Acceptor heartbeat set to 30 seconds
+20250811-14:54:05: Received logon
+20250811-14:54:05: Responding to Logon request
+20250812-06:37:37: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-06:37:37: Session state is not current; resetting FIX.4.4:MATCHENG->OMS
+20250812-06:37:37: Created session: FIX.4.4:MATCHENG->OMS
+20250812-06:38:01: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:52333
+20250812-06:38:01: Acceptor heartbeat set to 30 seconds
+20250812-06:38:01: Received logon
+20250812-06:38:01: Responding to Logon request
+20250812-06:46:38: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-06:46:38: Created session: FIX.4.4:MATCHENG->OMS
+20250812-06:47:08: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:52646
+20250812-06:47:08: Acceptor heartbeat set to 30 seconds
+20250812-06:47:08: Received logon
+20250812-06:47:08: Responding to Logon request
+20250812-07:12:43: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:12:43: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:13:06: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:52930
+20250812-07:13:06: Acceptor heartbeat set to 30 seconds
+20250812-07:13:06: Received logon
+20250812-07:13:06: Responding to Logon request
+20250812-07:16:28: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:16:28: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:16:55: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53019
+20250812-07:16:55: Acceptor heartbeat set to 30 seconds
+20250812-07:16:55: Received logon
+20250812-07:16:55: Responding to Logon request
+20250812-07:18:31: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:18:31: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:21:24: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:21:24: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:21:53: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53116
+20250812-07:21:53: Acceptor heartbeat set to 30 seconds
+20250812-07:21:53: Received logon
+20250812-07:21:53: Responding to Logon request
+20250812-07:22:33: Disconnecting: Socket exception (/127.0.0.1:53116): java.net.SocketException: Connection reset
+20250812-07:23:31: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:23:31: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:23:58: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53160
+20250812-07:23:58: Acceptor heartbeat set to 30 seconds
+20250812-07:23:58: Received logon
+20250812-07:23:58: Responding to Logon request
+20250812-07:24:58: Disconnecting: Socket exception (/127.0.0.1:53160): java.net.SocketException: Connection reset
+20250812-07:25:51: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:25:51: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:26:19: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53211
+20250812-07:26:19: Acceptor heartbeat set to 30 seconds
+20250812-07:26:19: Received logon
+20250812-07:26:19: Responding to Logon request
+20250812-07:27:08: Disconnecting: Socket exception (/127.0.0.1:53211): java.net.SocketException: Connection reset
+20250812-07:27:29: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:27:29: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:27:56: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53271
+20250812-07:27:56: Acceptor heartbeat set to 30 seconds
+20250812-07:27:56: Received logon
+20250812-07:27:56: Responding to Logon request
+20250812-07:29:37: Disconnecting: Socket exception (/127.0.0.1:53271): java.net.SocketException: Connection reset
+20250812-07:30:34: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:30:34: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:31:17: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53330
+20250812-07:31:17: Acceptor heartbeat set to 30 seconds
+20250812-07:31:17: Received logon
+20250812-07:31:17: Responding to Logon request
+20250812-07:43:48: Disconnecting: Encountered END_OF_STREAM
+20250812-07:43:49: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53440
+20250812-07:43:49: Acceptor heartbeat set to 30 seconds
+20250812-07:43:49: Received logon
+20250812-07:43:49: Responding to Logon request
+20250812-07:46:26: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-07:46:26: Created session: FIX.4.4:MATCHENG->OMS
+20250812-07:46:47: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:53606
+20250812-07:46:47: Acceptor heartbeat set to 30 seconds
+20250812-07:46:47: Received logon
+20250812-07:46:47: Responding to Logon request
+20250812-08:15:12: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-08:15:12: Created session: FIX.4.4:MATCHENG->OMS
+20250812-08:15:35: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:54072
+20250812-08:15:35: Acceptor heartbeat set to 30 seconds
+20250812-08:15:35: Received logon
+20250812-08:15:35: Responding to Logon request
+20250812-08:53:54: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-08:53:54: Created session: FIX.4.4:MATCHENG->OMS
+20250812-09:02:14: Session FIX.4.4:MATCHENG->OMS schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20250812-09:02:14: Created session: FIX.4.4:MATCHENG->OMS
+20250812-09:02:40: Accepting session FIX.4.4:MATCHENG->OMS from /127.0.0.1:55323
+20250812-09:02:40: Acceptor heartbeat set to 30 seconds
+20250812-09:02:40: Received logon
+20250812-09:02:40: Responding to Logon request
+20250812-09:02:41: MsgSeqNum too high, expecting 197 but received 199: 8=FIX.4.49=6835=A34=19949=OMS52=20250812-09:02:40.92056=MATCHENG98=0108=3010=170
+20250812-09:02:41: Enqueued at pos 199: 8=FIX.4.49=6835=A34=19949=OMS52=20250812-09:02:40.92056=MATCHENG98=0108=3010=170
+20250812-09:02:41: Sent ResendRequest FROM: 197 TO: infinity
+20250812-09:02:41: MsgSeqNum too high, expecting 197 but received 200: 8=FIX.4.49=14535=D34=20049=OMS52=20250812-09:02:41.08456=MATCHENG11=OMS_ORDER_175498936103121=138=10040=244=15054=155=AAPL60=20250812-09:02:41.07710=178
+20250812-09:02:41: Enqueued at pos 200: 8=FIX.4.49=14535=D34=20049=OMS52=20250812-09:02:41.08456=MATCHENG11=OMS_ORDER_175498936103121=138=10040=244=15054=155=AAPL60=20250812-09:02:41.07710=178
+20250812-09:02:41: Already sent ResendRequest FROM: 197 TO: 198.  Not sending another.
+20250812-09:02:41: MsgSeqNum too high, expecting 197 but received 201: 8=FIX.4.49=14535=D34=20149=OMS52=20250812-09:02:41.08456=MATCHENG11=OMS_ORDER_175498936108421=138=10040=244=15054=255=AAPL60=20250812-09:02:41.08410=186
+20250812-09:02:41: Enqueued at pos 201: 8=FIX.4.49=14535=D34=20149=OMS52=20250812-09:02:41.08456=MATCHENG11=OMS_ORDER_175498936108421=138=10040=244=15054=255=AAPL60=20250812-09:02:41.08410=186
+20250812-09:02:41: Already sent ResendRequest FROM: 197 TO: 198.  Not sending another.
+20250812-09:02:41: Received SequenceReset FROM: 197 TO: 200
+20250812-09:02:41: Processing queued message: 200
+20250812-09:02:41: ResendRequest for messages FROM 197 TO 198 has been satisfied.
+20250812-09:02:41: Processing queued message: 201
